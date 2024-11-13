@@ -1,0 +1,66 @@
+/* Estilo geral do corpo */
+body {
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+		background-color: #f4f4f4;
+}
+
+/* Estilo do cabeçalho */
+header {
+		text-align: center;
+		padding: 20px;
+		background-color: #007BFF;
+		color: white;
+}
+
+/* Estilo do conteúdo principal */
+main {
+		padding: 20px;
+		text-align: center;
+}
+
+/* Estilo da lista de links */
+.links {
+		list-style-type: none;
+		padding: 0;
+}
+
+.links li {
+		margin: 10px 0;
+}
+
+.links a {
+		text-decoration: none;
+		color: #007BFF;
+		font-weight: bold;
+		padding: 10px 20px;
+		border: 2px solid #007BFF;
+		border-radius: 5px;
+		transition: background-color 0.3s, color 0.3s;
+}
+
+.links a:hover {
+		background-color: #007BFF;
+		color: white;
+}
+
+/* Estilo do rodapé */
+footer {
+		text-align: center;
+		padding: 10px;
+		background-color: #333;
+		color: white;
+}
+
+/* Estilo responsivo para dispositivos móveis */
+@media (max-width: 768px) {
+		main {
+				padding: 10px;
+		}
+
+		.links a {
+				display: block;
+				margin: 10px 0;
+		}
+}

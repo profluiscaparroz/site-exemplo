@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Exemplo de Menu de Navegação com Submenu Dinâmico</title>
+	<link rel="stylesheet" href="../css/style4.css">
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="logo">
+			<h1>MeuSite</h1>
+		</div>
+		<div class="nav-links" id="nav-links">
+			<!-- O menu será adicionado dinamicamente aqui -->
+		</div>
+	</div>
+
+	<script>
+		// Vetor com os itens do menu e seus submenus
+		const menuData = [
+			{
+				name: 'Home',
+				link: '#home',
+				subMenu: [
+					{name: 'Home 1', link: '#home-1'},
+					{name: 'Home 2', link: '#home-2'}
+				]
+			},
+			{
+				name: 'Sobre',
+				link: '#about',
+				subMenu: [
+					{name: 'Nossa História', link: '#about-1'}
+				]
+			},
+			{
+				name: 'Serviços',
+				link: '#services',
+				subMenu: [
+					{name: 'Consultoria', link: '#service-1'},
+					{name: 'Desenvolvimento', link: '#service-2'},
+					{name: 'Suporte', link: '#service-3'}
+				]
+			},
+			{
+				name: 'Contato',
+				link: '#contact',
+				subMenu: [
+					{name: 'Email', link: '#contact-1'},
+					{name: 'Telefone', link: '#contact-2'}
+				]
+			},
+			// Exemplo de novo menu adicionado dinamicamente
+			{
+				name: 'Blog',
+				link: '#blog',
+				subMenu: [
+					{name: 'Artigos', link: '#blog-1'},
+					{name: 'Notícias', link: '#blog-2'}
+				]
+			}
+		];
+
+		// Função para criar os menus dinamicamente
+		function createMenu(menuData) {
+			const navLinks = document.getElementById('nav-links');
+
+			// Itera sobre o vetor de menus
+			menuData.forEach(menu => {
+				// Cria o contêiner do item do menu
+				const navItem = document.createElement('div');
+				navItem.classList.add('nav-item');
+
+				// Cria o link principal do menu
+				const mainLink = document.createElement('a');
+				mainLink.href = menu.link;
+				mainLink.textContent = menu.name;
+				navItem.appendChild(mainLink);
+
+				// Cria o submenu
+				const subMenuContainer = document.createElement('div');
+				subMenuContainer.classList.add('submenu');
+
+				menu.subMenu.forEach(subMenuItem => {
+					const subMenuLink = document.createElement('a');
+					subMenuLink.href = subMenuItem.link;
+					subMenuLink.textContent = subMenuItem.name;
+					subMenuContainer.appendChild(subMenuLink);
+				});
+
+				navItem.appendChild(subMenuContainer);
+				navLinks.appendChild(navItem);
+			});
+		}
+
+		// Chama a função para criar o menu dinamicamente
+		createMenu(menuData);
+	</script>
+</body>
+
+</html>
